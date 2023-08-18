@@ -1,8 +1,9 @@
+import SearchResultHeader from "./SearchResultHeader"
 const SearchResult = () => {
   return (
-    <h1 className="text-sm font-bold underline text-red-900">
-            Hello
-        </h1>
+        <div>
+          <SearchResultHeader/>
+        </div>
   )
 }
 

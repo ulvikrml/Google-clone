@@ -1,6 +1,7 @@
 import HomeHeader from "./HomeHeader"
 import SearchInput from "./SearchInput"
 import Logo from "../assets/google-logo.png"
+import Footer from "./Footer"
 const Home = () => {
     return (
         <div className="flex h-[100vh] flex-col">
@@ -23,6 +24,7 @@ const Home = () => {
                     </div>
                 </div>
             </main>
+            <Footer/>
         </div>
     )
 }

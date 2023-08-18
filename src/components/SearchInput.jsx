@@ -11,21 +11,22 @@ const SearchInput = () => {
     const [searchQuery, setSearchQuery] = useState(query || "");
     const navigate = useNavigate();
 
-    const searchQueryHandler = (event) => {
-        if (event?.key === "Enter" && searchQuery?.length > 0) {
+    const searchQueryHandler = (e) => {
+        e.preventDefault()
+        if (searchQuery?.length > 0) {
             navigate(`/${searchQuery}/${1}`);
         }
     };
     return (
-        <div
+        <form
+            onSubmit={searchQueryHandler}
             id="searchBox"
-            className="h-[46px] w-full md:w-[584px] flex items-center gap-3 px-4 border border-[#dfe1e5] rounded-3xl hover:bg-white hover:shadow-c hover:border-0 focus-within:shadow-c focus-within:border-0"
+            className="h-[46px] w-full md:w-[584px] flex items-center gap-3 px-4 border border-[#dfe1e5] rounded-3xl hover:shadow-inputShadow hover:border-borderColor focus-within:border-borderColor focus-within:shadow-inputShadow"
         >
             <AiOutlineSearch size={18} color="#9aa0a6" />
             <input
                 type="text"
                 onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyUp={searchQueryHandler}
                 value={searchQuery}
                 autoFocus
                 className="grow outline-0 text-black/[0.87]"
@@ -46,7 +47,7 @@ const SearchInput = () => {
                     alt=""
                 />
             </div>
-        </div>
+        </form>
     );
 };
 
