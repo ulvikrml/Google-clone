@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import MicIcon from "../assets/mic.svg";
 import ImageIcon from "../assets/image.svg";
 
-const SearchInput = () => {
+const SearchInput = ({focus}) => {
     const { query } = useParams();
     const [searchQuery, setSearchQuery] = useState(query || "");
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ const SearchInput = () => {
                 type="text"
                 onChange={(e) => setSearchQuery(e.target.value)}
                 value={searchQuery}
-                autoFocus
+                autoFocus={focus}
                 className="grow outline-0 text-black/[0.87]"
             />
             <div className="flex items-center gap-3">
